@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							https://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+							http://www.springframework.org/schema/context
+							https://www.springframework.org/schema/context/spring-context-4.3.xsd">
+							
+	<!-- 알아서 주입해줘~ -->
+	<context:annotation-config/>
+	<context:component-scan base-package="di.anno" />
+
+<!-- 위와 같이 di.anno 패키지를 스캔범위에 넣어주면 아래 세줄이 필요없어짐!	
+	<bean class="di.anno.HankookTire" id="hankook"/>
+	<bean class="di.anno.KeumhoTire" id="keumho"/>
+	<bean class="di.anno.Car" id="car"/> -->
+
+
+
+</beans>

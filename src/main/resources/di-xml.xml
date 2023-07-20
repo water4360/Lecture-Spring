@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans
+							https://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<bean class="di.xml.HankookTire" id="hankook"/>
+	<bean class="di.xml.KeumhoTire" id="keumho"/>
+	
+	<!-- 
+		Tire tire = new KeumhoTire();
+		Car car = new Car();
+		car.setTire(tire);
+		객체를 생성하고 싶은것임!	
+	-->
+	<bean class="di.xml.Car" id="car2">
+	<!-- 이 property가 Setter 주입을 의미. 단 setTire의 경우 set을 제외한 나머지 이름!!! -->
+	<!-- name의 요소는 클래스의 변수명, ref는 위에서 생성한 클래스의 객체명 -->
+		<property name="tire" ref="keumho"></property>
+	</bean>
+	
+	
+	<!-- 
+		Tire tire = new KeumhoTire();
+		Car car = new Car(tire);
+		생성자로 생성하고 싶은것임!
+		
+		만약 2개의 인자가 필요하다면 순서대로 쓰자.	
+	-->
+	<bean class="di.xml.Car" id="car">
+		<constructor-arg ref="keumho"></constructor-arg>
+		<constructor-arg ref="hankook"></constructor-arg>
+	</bean>
+<!--		객체가 아닌 경우 arg가 아닌 value로 넣는다	 -->
+<!-- 		<constructor-arg value="hello"/> -->
+	
+	
+</beans>
